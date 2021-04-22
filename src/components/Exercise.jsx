@@ -3,6 +3,7 @@ import pic8 from "../assets/img_8.JPG";
 import "../sass/main.scss";
 
 function Exercise() {
+  // custom use exercise hook
   // workout name
   let [workout, setWorkout] = useState("");
   // workout img
