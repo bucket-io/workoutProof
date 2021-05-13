@@ -1,12 +1,22 @@
-// import logo from "./logo.svg";
+/*
+App.tsx -- entry point to the react app
+
+- bootstrapping the app
+- middleware
+- <Provder /> pattern comnponents
+- React Router paths
+
+
+*/
+
+// Aaron recommends a component library, which does not need global styles
+// grommet.io, ant.design
 import "../sass/main.scss";
-import React, { useState } from "react";
+
+import React from "react";
 import Exercise from "./Exercise";
-import { ReactComponent } from "*.svg";
-// import ReactDom from 'react-dom'
-// react router conditional rendering
-//TODO: FIX THIS ISH -- add webpack and ts.config
-const App = () => {
+
+const App: React.FC = () => {
   return (
     <div className="App">
       <Exercise />
@@ -15,3 +25,5 @@ const App = () => {
 };
 
 export default App;
+
+// npm install --save typescript @types/node @types/react @types/react-dom @types/jest
