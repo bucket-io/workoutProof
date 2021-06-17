@@ -1,30 +1,28 @@
 import React, { useState } from "react";
-import pic8 from "../assets/img_8.JPG";
-import "../sass/main.scss";
 
-function Exercise() {
+const Exercise: React.FC = () => {
   // custom use exercise hook
   // workout name
-  let [workout, setWorkout] = useState("");
+  const [workout, setWorkout] = useState<string>("Burpee");
   // workout img
-  let [picture, setPicture] = useState("");
+  const [picture, setPicture] = useState<string>("../assets/img_8.JPG");
   // number of reps for the exercise set
-  let [reps, setReps] = useState(0);
+  const [reps, setReps] = useState<number>(0);
   // workout description
-  let [description, setDescription] = useState("");
+  const [description, setDescription] = useState<string>("Jump up jump up and get down!");
   //workout array
-  const [exerciseArray, setExerciseArray] = useState([]);
+  // const [exerciseArray, setExerciseArray] = useState([]);
   // key = exercise # or _id value
   // next - functianality - page reload with new content
 
   // onload run newExercise to generate starting array
   // onload set state (useState)
   // newExercise(e === onload) called three times
-  const newExercise = (e) => {
-    setWorkout((workout = "Burpees"));
-    setReps((reps = 25));
-    setDescription((description = "Jump up jump up and get down!"));
-    setPicture((picture = pic8));
+  const newExercise = () => {
+    setWorkout("Crunches");
+    setReps(25);
+    setDescription("Jump up jump up and get down!");
+    setPicture('../assets/img_10.JPG');
     // on click would check length of array, shift 0th exercise off array and push new random on, return shifted exercise as new exercise
     // after length > some numbber 3 5 w/e
     // select random number between 0 and database.length
@@ -43,6 +41,6 @@ function Exercise() {
       </button>
     </div>
   );
-}
+};
 
 export default Exercise;
