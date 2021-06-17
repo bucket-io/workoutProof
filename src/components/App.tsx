@@ -13,10 +13,21 @@ App.tsx -- entry point to the react app
 // grommet.io, ant.design
 import "../sass/main.scss";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Exercise from "./Exercise";
+import initApp from "../config/bootstrap";
 
 const App: React.FC = () => {
+  const [isBooted, setIsBooted] = useState<boolean>(false);
+
+  useEffect(() => {
+    initApp(setIsBooted);
+  }, [isBooted]);
+
+  if (!isBooted) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="App">
       <Exercise />
