@@ -2,16 +2,18 @@ export enum EnvKeys {
   API_URL,
 }
 
-let envVars = {};
-
 //TODO: do we need this bit if we're just doing process.env??
-export async function loadConfig() {
-  const response = await fetch("./config.json");
+// export async function loadConfig() {
+//   const response = await fetch("./config.json");
 
-  envVars = await response.json();
-}
+//   envVars = await response.json();
+// }
 
-export default function getEnv(key: EnvKeys): string {
+export default function getEnv(key: 'API_URL'): string {
+  const envVars = {
+    API_URL: 'http://localhost:3000',
+  };
+
   const value = envVars[key];
 
   if (value === undefined) {
