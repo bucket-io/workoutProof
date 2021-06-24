@@ -1,8 +1,16 @@
-import getEnv, { EnvKeys } from "../../config/getEnv";
+import getEnv from "../../config/getEnv";
+import { User } from "./models";
 
-export type ResourceType = "users" | "exercises" | "exercise_sessions";
+async function getResource<T>(path: string): Promise<T[]> {
+  const baseUrl = getEnv('API_URL');
+  const response = await fetch(`${baseUrl}/${path}`);
 
-export async function getResource<T>(type: ResourceType): T[] {
-  const baseUrl = getEnv(EnvKeys.API_URL);
-  const response = await fetch(`${baseUrl}/${type}`);
+  const resources = await response.json() as T[];
+
+  return resources as T[];
 }
+
+export async function getUsers(): Promise<User[]> {
+  return getResource<User>('users');
+}
+
